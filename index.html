@@ -2,123 +2,112 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>퍼가요~♡ ㅁiU월드</title>
+    <title>미니홈피 레이아웃</title>
     <style>
-        :root { --main-orange: #57b2ff; --bg-blue: #dfc2ff; }
+        /* 1. 전체 배경 (회색 바둑판) */
         body {
-            background-color: #f0f0f0;
-            background-image: radial-gradient(var(--main-orange) 1px, transparent 1px);
-            background-size: 20px 20px;
-            display: flex; justify-content: center; align-items: center; min-height: 100vh;
-            margin: 0; font-family: "돋움", dotum, sans-serif; font-size: 12px;
+            background-color: #a3a3a3;
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; margin: 0; font-family: "돋움", dotum, sans-serif;
         }
-        .wrapper {
-            width: 95%; max-width: 850px; height: 550px;
-            background-color: var(--bg-blue); border: 1px solid #777; border-radius: 15px;
-            padding: 25px; display: flex; position: relative; box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+
+        /* 2. 가장 바깥쪽 하늘색 틀 */
+        .outer-box {
+            width: 800px; height: 520px;
+            background-color: #b3d9ff;
+            border: 1px solid #777; border-radius: 15px;
+            padding: 20px; display: flex; position: relative;
         }
+
+        /* 3. 내부 흰색 점선 틀 */
         .inner-box {
             background-color: white; border: 2px dashed #999; border-radius: 10px;
-            flex: 1; display: flex; padding: 15px; gap: 15px; overflow: hidden;
+            flex: 1; display: flex; padding: 15px; gap: 10px;
         }
-        /* 왼쪽 프로필 */
-        .left-section { width: 200px; border-right: 1px solid #eee; display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
-        .profile-img { width: 160px; height: 160px; border: 1px solid #ccc; object-fit: cover; margin: 10px 0; }
-        
-        /* 오른쪽 메인 콘텐츠 */
-        .main-section { flex: 1; display: flex; flex-direction: column; position: relative; overflow-y: auto; padding-right: 10px; }
-        .content-area { display: none; } /* 기본적으로 숨김 */
-        .content-area.active { display: block; } /* 선택된 것만 보임 */
 
-        /* 미니룸 스타일 */
-        .mini-room { width: 100%; height: 200px; border: 1px solid #eee; background: #f9f9f9; margin-bottom: 15px; }
+        /* --- 왼쪽 프로필 섹션 --- */
+        .left-section { width: 180px; display: flex; flex-direction: column; flex-shrink: 0; }
+        .visitor-count { font-size: 10px; text-align: center; margin-bottom: 10px; }
+        .visitor-count b { color: red; }
 
-        /* 사진첩 스타일 */
-        .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .photo-item { border: 1px solid #ddd; padding: 5px; text-align: center; background: #fff; }
-        .photo-item img { width: 100%; height: 120px; object-fit: cover; }
-
-        /* 사이드 메뉴 */
-        .side-menu { position: absolute; right: -55px; top: 60px; display: flex; flex-direction: column; gap: 4px; }
-        .menu-btn {
-            background-color: #BA73FF; color: white; border: 1px solid #1a6d8a;
-            padding: 10px 10px; border-radius: 0 8px 8px 0; cursor: pointer; width: 60px; text-align: left;
+        .profile-container {
+            border: 1px solid #ccc; width: 100%; height: 160px;
+            background-color: #f0f0f0; margin-bottom: 15px; overflow: hidden;
         }
-        .menu-btn.active { background-color: white; color: #333; border-left: none; font-weight: bold; }
+        .profile-container img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* 기타 스타일 */
-        .title { color: #BA73FF; font-weight: bold; margin-bottom: 15px; display: block; }
-        .input-group { display: flex; gap: 5px; margin-bottom: 15px; }
+        .profile-text { font-size: 11px; color: #666; line-height: 1.6; text-align: center; }
+        .profile-name { color: #238db3; font-weight: bold; margin: 10px 0; text-align: center; }
+
+        /* --- 오른쪽 메인 섹션 --- */
+        .main-section { flex: 1; display: flex; flex-direction: column; }
+        .main-title { 
+            font-size: 13px; color: #238db3; font-weight: bold; 
+            margin-bottom: 10px; border-bottom: 1px solid #eee; padding-bottom: 5px;
+        }
+
+        .miniroom-area {
+            width: 100%; height: 220px; border: 1px solid #ddd;
+            background: #f9f9f9; margin-bottom: 15px;
+            /* 여기에 아까 만든 미니룸 이미지를 넣으세요 */
+            background-image: url('미니룸_이미지_주소');
+            background-size: cover; background-position: center;
+        }
+
+        .news-section { font-size: 11px; color: #333; }
+        .news-title { font-weight: bold; color: #238db3; margin-bottom: 5px; display: block; }
+
+        /* --- 오른쪽 탭 메뉴 --- */
+        .side-tabs {
+            position: absolute; right: -61px; top: 50px;
+            display: flex; flex-direction: column; gap: 3px;
+        }
+        .tab {
+            width: 60px; padding: 8px 5px;
+            background-color: #238db3; color: white;
+            border: 1px solid #1a6d8a; border-radius: 0 5px 5px 0;
+            font-size: 12px; cursor: pointer; text-align: center;
+        }
+        .tab.active { background-color: white; color: black; border-left: none; font-weight: bold; }
+
     </style>
 </head>
 <body>
 
-<div class="wrapper">
+<div class="outer-box">
     <div class="inner-box">
         <div class="left-section">
-            <div style="color:red; font-weight:bold;">TODAY 609 | TOTAL 2008</div>
-            <img src="https://raw.githubusercontent.com/da1eee0609/meu2026/main/0325.gif" class="profile-img">
-            <div style="text-align:center;"><b>채오니</b><br><br>생일 축하해! 퍼가요~♡</div>
+            <div class="visitor-count">TODAY <b>520</b> | TOTAL 1994</div>
+            <div class="profile-container">
+                <img src="https://via.placeholder.com/160" alt="Profile">
+            </div>
+            <div class="profile-name">사용자이름(bias)</div>
+            <div class="profile-text">
+                어제보다 오늘 더<br>사랑해! 퍼가요~♡
+            </div>
         </div>
 
         <div class="main-section">
-            <span class="title">사이좋은 사람들, 싸이월드</span>
-
-            <div id="home" class="content-area active">
-                <div class="mini-room">
-                    <img src="여기에_아까_만든_미니룸_이미지_주소" style="width:100%; height:100%; object-fit:cover;">
-                </div>
-                <div style="border-top:1px solid #eee; padding-top:10px;">
-                    <b>최근 게시물</b><br>
-                    <p>● [공지] 생일 카페 장소 안내</p>
-                    <p>● [특전] 16bit 도트 키링 실물 공개!</p>
-                </div>
-            </div>
-
-            <div id="photo" class="content-area">
-                <b>Photo Album</b><hr>
-                <div class="photo-grid">
-                    <div class="photo-item"><img src="이미지주소1"><span>입덕부정기</span></div>
-                    <div class="photo-item"><img src="이미지주소2"><span>레전드 무대</span></div>
-                    <div class="photo-item"><img src="이미지주소3"><span>오늘의 픽셀</span></div>
-                </div>
-            </div>
-
-            <div id="guest" class="content-area">
-                <b>Guestbook</b><hr>
-                <div class="input-group">
-                    <input type="text" placeholder="축하 메시지 남기기" style="flex:1;">
-                    <button style="font-size:11px;">확인</button>
-                </div>
-                <div style="border-bottom:1px dashed #ddd; padding:5px;"><b>팬1</b>: 도토리 10개 선물하고 가요!</div>
-                <div style="border-bottom:1px dashed #ddd; padding:5px;"><b>팬2</b>: 사이트 너무 예뻐요ㅠㅠ</div>
+            <div class="main-title">♡너의곁으로♡ <span style="font-weight:normal; font-size:10px; color:#999; margin-left:10px;">http://www.cyworld.com/...</span></div>
+            
+            <div class="miniroom-area"></div>
+            
+            <div class="news-section">
+                <span class="news-title">Updated news</span>
+                <p>● [공지] 생일 카페 이벤트 안내</p>
+                <p>● [사진] 이번 앨범 컨셉 미쳤다ㅠㅠ</p>
+                <p>● [일기] 벌써 생일이라니 시간 빠르다</p>
             </div>
         </div>
     </div>
 
-    <div class="side-menu">
-        <button class="menu-btn active" onclick="openTab(event, 'home')">홈</button>
-        <button class="menu-btn" onclick="openTab(event, 'photo')">사진첩</button>
-        <button class="menu-btn" onclick="openTab(event, 'guest')">방명록</button>
+    <div class="side-tabs">
+        <div class="tab active">홈</div>
+        <div class="tab">프로필</div>
+        <div class="tab">사진첩</div>
+        <div class="tab">방명록</div>
     </div>
 </div>
-
-<script>
-    function openTab(evt, tabName) {
-        var i, content, tablinks;
-        content = document.getElementsByClassName("content-area");
-        for (i = 0; i < content.length; i++) {
-            content[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("menu-btn");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-</script>
 
 </body>
 </html>
