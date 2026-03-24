@@ -128,14 +128,14 @@
                 <div class="miniroom-area">
                     </div>
                 <div class="guest-say">
-                    <div style="color: #238db3; font-weight: bold; margin-bottom: 10px;">What friends say</div>
+                    <div style="color: #238db3; font-weight: bold; margin-bottom: 10px;">일촌평</div>
                     <div class="input-box">
                         <input type="text" id="comment-input" placeholder="일촌평을 남겨주세요!">
                         <button onclick="addComment()">확인</button>
                     </div>
                     <div id="comment-list">
-                        <div class="comment-item"><b>행복포리</b> 우리 미유 생일 너무 축하해! 퍼가요~♡</div>
-                        <div class="comment-item"><b>도토리부자</b> 미니홈피 진짜 예쁘네요. 생카 꼭 갈게요!</div>
+                        <div class="comment-item"><b>채오니엄마</b> 우리 미유 생일 너무 축하해! 퍼가요~♡</div>
+                        <div class="comment-item"><b>도토리부자</b> 미니홈피 진짜 예쁘네요. 생일 축하해요!</div>
                     </div>
                 </div>
             </div>
@@ -238,7 +238,7 @@
 
         const newComment = document.createElement('div');
         newComment.className = 'comment-item';
-        newComment.innerHTML = `<b>익명팬</b> ${input.value}`;
+        newComment.innerHTML = `<b>이포리♡</b> ${input.value}`;
         
         list.insertBefore(newComment, list.firstChild);
         input.value = "";
