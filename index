@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퍼가요~♡ 미니홈피 생카</title>
+    <style>
+        :root { --main-orange: #ff8a00; --bg-blue: #b3d9ff; }
+        body {
+            background-color: #f0f0f0;
+            background-image: radial-gradient(var(--main-orange) 1px, transparent 1px);
+            background-size: 20px 20px;
+            display: flex; justify-content: center; align-items: center; min-height: 100vh;
+            margin: 0; font-family: "돋움", dotum, sans-serif; font-size: 12px;
+        }
+        .wrapper {
+            width: 95%; max-width: 850px; height: 550px;
+            background-color: var(--bg-blue); border: 1px solid #777; border-radius: 15px;
+            padding: 25px; display: flex; position: relative; box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+        }
+        .inner-box {
+            background-color: white; border: 2px dashed #999; border-radius: 10px;
+            flex: 1; display: flex; padding: 15px; gap: 15px; overflow: hidden;
+        }
+        /* 왼쪽 프로필 */
+        .left-section { width: 200px; border-right: 1px solid #eee; display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+        .profile-img { width: 160px; height: 160px; border: 1px solid #ccc; object-fit: cover; margin: 10px 0; }
+        
+        /* 오른쪽 메인 콘텐츠 */
+        .main-section { flex: 1; display: flex; flex-direction: column; position: relative; overflow-y: auto; padding-right: 10px; }
+        .content-area { display: none; } /* 기본적으로 숨김 */
+        .content-area.active { display: block; } /* 선택된 것만 보임 */
+
+        /* 미니룸 스타일 */
+        .mini-room { width: 100%; height: 200px; border: 1px solid #eee; background: #f9f9f9; margin-bottom: 15px; }
+
+        /* 사진첩 스타일 */
+        .photo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .photo-item { border: 1px solid #ddd; padding: 5px; text-align: center; background: #fff; }
+        .photo-item img { width: 100%; height: 120px; object-fit: cover; }
+
+        /* 사이드 메뉴 */
+        .side-menu { position: absolute; right: -55px; top: 60px; display: flex; flex-direction: column; gap: 4px; }
+        .menu-btn {
+            background-color: #238db3; color: white; border: 1px solid #1a6d8a;
+            padding: 10px 10px; border-radius: 0 8px 8px 0; cursor: pointer; width: 60px; text-align: left;
+        }
+        .menu-btn.active { background-color: white; color: #333; border-left: none; font-weight: bold; }
+
+        /* 기타 스타일 */
+        .title { color: #238db3; font-weight: bold; margin-bottom: 15px; display: block; }
+        .input-group { display: flex; gap: 5px; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="inner-box">
+        <div class="left-section">
+            <div style="color:red; font-weight:bold;">TODAY 520 | TOTAL 1994</div>
+            <img src="https://i.ibb.co/68vM97D/pixel-art.png" class="profile-img">
+            <div style="text-align:center;"><b>[아이돌 이름]</b><br><br>생일 축하해! 퍼가요~♡</div>
+        </div>
+
+        <div class="main-section">
+            <span class="title">사이좋은 사람들, 싸이월드</span>
+
+            <div id="home" class="content-area active">
+                <div class="mini-room">
+                    <img src="여기에_아까_만든_미니룸_이미지_주소" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div style="border-top:1px solid #eee; padding-top:10px;">
+                    <b>최근 게시물</b><br>
+                    <p>● [공지] 생일 카페 장소 안내</p>
+                    <p>● [특전] 16bit 도트 키링 실물 공개!</p>
+                </div>
+            </div>
+
+            <div id="photo" class="content-area">
+                <b>Photo Album</b><hr>
+                <div class="photo-grid">
+                    <div class="photo-item"><img src="이미지주소1"><span>입덕부정기</span></div>
+                    <div class="photo-item"><img src="이미지주소2"><span>레전드 무대</span></div>
+                    <div class="photo-item"><img src="이미지주소3"><span>오늘의 픽셀</span></div>
+                </div>
+            </div>
+
+            <div id="guest" class="content-area">
+                <b>Guestbook</b><hr>
+                <div class="input-group">
+                    <input type="text" placeholder="축하 메시지 남기기" style="flex:1;">
+                    <button style="font-size:11px;">확인</button>
+                </div>
+                <div style="border-bottom:1px dashed #ddd; padding:5px;"><b>팬1</b>: 도토리 10개 선물하고 가요!</div>
+                <div style="border-bottom:1px dashed #ddd; padding:5px;"><b>팬2</b>: 사이트 너무 예뻐요ㅠㅠ</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="side-menu">
+        <button class="menu-btn active" onclick="openTab(event, 'home')">홈</button>
+        <button class="menu-btn" onclick="openTab(event, 'photo')">사진첩</button>
+        <button class="menu-btn" onclick="openTab(event, 'guest')">방명록</button>
+    </div>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        var i, content, tablinks;
+        content = document.getElementsByClassName("content-area");
+        for (i = 0; i < content.length; i++) {
+            content[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("menu-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
+
+</body>
+</html>
