@@ -83,6 +83,27 @@
     justify-content: center;
 }
         .tab-btn.active { background-color: white; color: black; border-left: none; font-weight: bold; }
+    /* 퍼가요 말풍선 스타일 */
+.scrap-popup {
+    display: none; /* 평소엔 숨김 */
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 2px solid #ff8a00; /* 싸이 주황색 */
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: #ff8a00;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: "돋움", dotum, sans-serif;
+    z-index: 1000; /* 맨 위에 띄우기 */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+/* 퍼가요 도트 아이콘 (선택 사항) */
+.scrap-popup::before {
+    content: "🧡 ";
+}
     </style>
 </head>
 <body>
@@ -129,25 +150,35 @@
                 </div>
             </div>
 
-            <div id="photo" class="tab-content">
-    <b style="color:#238db3;">[Photo Album]</b><hr>
+            <div id="photo" class="tab-content" style="position: relative;"> <b style="color:#238db3;">[Photo Album]</b><hr>
     
-    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; padding: 10px;">
-    
-    <div style="background: #fff; border: 1px solid #ddd; padding: 10px; text-align: center;">
-        <img src="사진1" style="width: 100%; height: 120px; object-fit: cover;">
-        <div style="font-size: 11px; margin-top: 5px;">아기미유짱>< </div>
-    </div>
+    <div id="scrap-msg" class="scrap-popup">퍼가요~♡</div>
 
-    <div style="background: #fff; border: 1px solid #ddd; padding: 10px; text-align: center;">
-        <img src="사진2" style="width: 100%; height: 120px; object-fit: cover;">
-        <div style="font-size: 11px; margin-top: 5px;">챙쫀쿠 냠냠</div>
-    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 10px;">
+        
+        <div style="background: #fff; border: 1px solid #ddd; padding: 10px; text-align: center;">
+            <img src="사진주소1" 
+                 onclick="showScrapMsg()" 
+                 style="width: 100%; height: 120px; object-fit: cover; cursor: pointer;" 
+                 alt="사진1">
+            <div style="font-size: 11px; margin-top: 5px;">제목 1</div>
+        </div>
 
-    <div style="background: #fff; border: 1px solid #ddd; padding: 10px; text-align: center;">
-        <img src="사진3" style="width: 100%; height: 120px; object-fit: cover;">
-        <div style="font-size: 11px; margin-top: 5px;">미유모롤 가족 등장!</div>
-    </div>
+   <div style="background: #fff; border: 1px solid #ddd; padding: 10px; text-align: center;">
+            <img src="사진주소1" 
+                 onclick="showScrapMsg()" 
+                 style="width: 100%; height: 120px; object-fit: cover; cursor: pointer;" 
+                 alt="사진1">
+            <div style="font-size: 11px; margin-top: 5px;">제목 1</div>
+        </div>
+
+   <div style="background: #fff; border: 1px solid #ddd; padding: 10px; text-align: center;">
+            <img src="사진주소1" 
+                 onclick="showScrapMsg()" 
+                 style="width: 100%; height: 120px; object-fit: cover; cursor: pointer;" 
+                 alt="사진1">
+            <div style="font-size: 11px; margin-top: 5px;">제목 1</div>
+        </div>
 
 </div>
 </div>
@@ -233,6 +264,18 @@
         bgmItem.style.color = "#666"; // 원래 색으로 복구
         bgmItem.style.fontWeight = "normal";
     }
+}
+    // 퍼가요 말풍선 보여주기 함수
+function showScrapMsg() {
+    const msg = document.getElementById('scrap-msg');
+    
+    // 말풍선 보이기
+    msg.style.display = 'block';
+    
+    // 1.5초 뒤에 자동으로 숨기기
+    setTimeout(function() {
+        msg.style.display = 'none';
+    }, 1500); // 1500ms = 1.5초
 }
 </script>
 
