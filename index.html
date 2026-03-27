@@ -2,26 +2,32 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>ㅁiU월드에 오신 걸 환영합니다~</title>
+    <title>(º﹃º ) ㅁiU world ⓔ 오신걸 환영함㉰..☆*</title>
     <style>
-        /* 기본 배경 및 폰트 설정 */
-        body {
-            background-color: #a3a3a3;
-            display: flex; justify-content: center; align-items: center;
-            height: 100vh; margin: 0; font-family: "돋움", dotum, sans-serif;
-        }
-
-        /* 1. 메인 프레임 */
-        .outer-box {
-    width: 1150px;  /* 950에서 변경 */
-    height: 670px;  /* 560에서 변경 */
-    background-color: #D9C3FA;
-    border: 1px solid #777; 
+     /* 브라우저 전체 배경색 (바탕화면) 수정 */
+body {
+    /* 기존 회색(#a3a3a3) 대신 아주 연한 라벤더색으로 변경 */
+    background-color: #F4EEFF; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    height: 100vh; 
+    margin: 0; 
+    font-family: "돋움", dotum, sans-serif;
+/* 메인 바깥쪽 프레임 배경색 수정 */
+.outer-box {
+    /* 기존 #D9C3FA에서 조금 더 밝고 부드러운 연보라로 변경 */
+    background-color: #E6D8FF; 
+    border: 1px solid #B8A2DC; /* 테두리도 부드러운 보라색으로 */
+    width: 1150px;
+    height: 670px;
     border-radius: 15px;
     padding: 20px 40px 20px 20px;
     display: flex; 
     position: relative; 
     gap: 10px;
+    /* 은은한 그림자를 추가하면 입체감이 살아나요 */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
         /* 2. 내부 흰색 점선 틀 */
         .inner-box {
@@ -135,25 +141,26 @@ body /* Purple Angel Wing Heart - https://www.cursors-4u.com/cursor/purple-angel
             position: absolute; right: -50px; top: 60px;
             display: flex; flex-direction: column; gap: 3px;
         }
-        /* 수정된 탭 버튼 스타일 */
+
+/* 3. 사이드 탭 버튼 색상 보정 */
 .tab-btn {
-    width: 55px;             /* 가로 길이를 조금 늘려주세요 */
-    height: 35px;            /* 세로 길이를 적당히 조절 */
-    padding: 5px; 
-    background-color: #4328B8; 
+    background-color: #4328B8; /* 기본 보라 */
     color: white;
-    border: 1px solid #4513D4; 
-    border-radius: 0 5px 5px 0; /* 오른쪽만 둥글게 */
-    font-size: 11px;  
-    text-align: center;
-    
-    /* [수정 포인트] */
-    writing-mode: horizontal-tb; /* 가로 방향으로 변경 (기본값) */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border: 1px solid #321A9B;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 11px;
 }
-        .tab-btn.active { background-color: white; color: black; border-left: none; font-weight: bold; }
+
+.tab-btn.active {
+    /* 활성화된 탭은 흰색으로 대비를 줍니다 */
+    background-color: white;
+    color: #4328B8;
+    font-weight: bold;
+    border-right: none;
+}
     /* 퍼가요 말풍선 스타일 */
 .scrap-popup {
     display: none; /* 평소엔 숨김 */
