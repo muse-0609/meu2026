@@ -261,26 +261,24 @@ body {
     </div>
 </div>
               <div class="miniroom-area" style="
-        width: 75%;             /* 부모 너비에 맞춤 */
-        height: auto;           /* 높이는 비율에 따라 자동 계산 */
-        aspect-ratio: 2 / 1;    /* [핵심] 2:1 비율 고정 (미니룸 이미지 비율) */
-        border: 1px solid #ddd;
-        background: #f9f9f9;
-        margin-bottom: 15px;
-        overflow: hidden;       /* 비율을 벗어나는 이미지 숨김 */
-        position: relative;
-    ">
-        <div>
-            <img src="miniroom.png" 
-                 class="slide active" 
-                 style="
-                    width: 100%; 
-                    height: 100%; 
-                    object-fit: cover; /* 이미지 전체가 다 보이게 (여백 생김) */
-                    /* 만약 여백 없이 꽉 채우고 싶다면 object-fit: cover; 로 변경하세요 */
-                 ">
-            </div>
-    </div>
+    width: 75%;             /* 전체 화면 너비의 75% */
+    height: auto;           
+    aspect-ratio: 2 / 1;    /* 가로가 2일 때 세로가 1 (비율 유지) */
+    border: 1px solid #ddd;
+    background: #f9f9f9;
+    margin: 0 auto 15px;    /* [수정] 0 auto를 추가해 가운데 정렬 */
+    overflow: hidden;       
+    position: relative;
+">
+    <img src="miniroom.png" 
+         class="slide active" 
+         style="
+            width: 100%; 
+            height: 100%; 
+            display: block;    /* 아래쪽 미세한 공백 제거 */
+            object-fit: cover; /* 2:1 비율 박스에 꽉 채우기 */
+         ">
+</div>
                 <div class="guest-say">
                     <div style="color: #4328B8; font-weight: bold; margin-bottom: 10px;">What friends say</div>
                     <div class="input-box">
