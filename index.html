@@ -557,7 +557,7 @@ fetch(scriptURL + "?t=" + new Date().getTime(), {
                     list.appendChild(newItem);
                 });
             } else {
-                list.innerHTML = '<div class="comment-item" style="color:#999;">아직 등록된 일촌평이 없어요. 🥓</div>';
+                list.innerHTML = '<div class="comment-item" style="color:#999;">아직 등록된 일촌평이 없어요.</div>';
             }
         })
         .catch(error => {
@@ -576,7 +576,7 @@ function addComment() {
     const content = contentInput.value.trim();
 
     if (!content) {
-        alert("일촌평 내용을 입력해주세요! 🥓");
+        alert("일촌평 내용을 입력해주세요!");
         return;
     }
 
