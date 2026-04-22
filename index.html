@@ -283,7 +283,43 @@ body {
                     <div id="comment-list"></div>
                 </div>
             </div>
+<div id="board" class="tab-content" style="padding: 15px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #4328B8; padding-bottom: 8px; margin-bottom: 15px;">
+        <span style="font-size: 13px; color: #4328B8; font-weight: bold;">[NOTICE] 미유 생카 이용 가이드</span>
+        <span style="font-size: 11px; color: #999;">Total 4 posts</span>
+    </div>
 
+    <table style="width: 100%; border-collapse: collapse; font-size: 11px; color: #333;">
+        <thead>
+            <tr style="background: #f9f9f9; border-bottom: 1px solid #eee;">
+                <th style="padding: 8px; width: 40px; text-align: center;">번호</th>
+                <th style="padding: 8px; text-align: left;">제목</th>
+                <th style="padding: 8px; width: 60px; text-align: center;">작성자</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid #eee; background-color: #fdf4ff; font-weight: bold;"
+                onclick="showNotice(
+                    '특전 안내', '음료 주문 시 종이컵, 엽서와 포토카드를 증정합니다! 💜', '디저트 세트 주문 시 음료 특전과 키캡 키링을 증정합니다!💜'
+                )">
+                <td style="padding: 10px; text-align: center; color: #ff8a00;">[공지]</td>
+                <td style="padding: 10px;">✨ 미유 생일 카페 특전 안내</td>
+                <td style="padding: 10px; text-align: center;">muse.</td>
+            </tr>
+            <tr style="border-bottom: 1px dashed #eee;" onclick="showNotice('찾아오시는 길', '서울 마포구 신촌로 16 1층 리마인드커피에서 진행합니다!')">
+                <td style="padding: 10px; text-align: center; color: #999;">2</td>
+                <td style="padding: 10px;">📍 카페 찾아오시는 길</td>
+                <td style="padding: 10px; text-align: center;">muse.</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div id="notice-detail" style="display:none; margin-top: 20px; padding: 15px; background: #f1f1f1; border: 1px solid #ccc; border-radius: 5px;">
+        <div id="notice-title" style="font-weight: bold; color: #4328B8; margin-bottom: 10px;"></div>
+        <div id="notice-content" style="font-size: 12px; line-height: 1.6;"></div>
+        <button onclick="this.parentElement.style.display='none'" style="margin-top: 10px; font-size: 10px;">닫기</button>
+    </div>
+</div>
            <div id="profile" class="tab-content">
     <div style="padding: 15px; font-size: 11px; line-height: 1.8; color: #555;">
         <div style="border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 10px;">
@@ -361,43 +397,7 @@ body {
         </div>
     </div>
 </div>
-<div id="board" class="tab-content" style="padding: 15px;">
-    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #4328B8; padding-bottom: 8px; margin-bottom: 15px;">
-        <span style="font-size: 13px; color: #4328B8; font-weight: bold;">[NOTICE] 미유 생카 이용 가이드</span>
-        <span style="font-size: 11px; color: #999;">Total 4 posts</span>
-    </div>
 
-    <table style="width: 100%; border-collapse: collapse; font-size: 11px; color: #333;">
-        <thead>
-            <tr style="background: #f9f9f9; border-bottom: 1px solid #eee;">
-                <th style="padding: 8px; width: 40px; text-align: center;">번호</th>
-                <th style="padding: 8px; text-align: left;">제목</th>
-                <th style="padding: 8px; width: 60px; text-align: center;">작성자</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr style="border-bottom: 1px solid #eee; background-color: #fdf4ff; font-weight: bold;"
-                onclick="showNotice(
-                    '특전 안내', '음료 주문 시 종이컵, 엽서와 포토카드를 증정합니다! 💜', '디저트 세트 주문 시 음료 특전과 키캡 키링을 증정합니다!💜'
-                )">
-                <td style="padding: 10px; text-align: center; color: #ff8a00;">[공지]</td>
-                <td style="padding: 10px;">✨ 미유 생일 카페 특전 안내</td>
-                <td style="padding: 10px; text-align: center;">muse.</td>
-            </tr>
-            <tr style="border-bottom: 1px dashed #eee;" onclick="showNotice('찾아오시는 길', '서울 마포구 신촌로 16 1층 리마인드커피에서 진행합니다!')">
-                <td style="padding: 10px; text-align: center; color: #999;">2</td>
-                <td style="padding: 10px;">📍 카페 찾아오시는 길</td>
-                <td style="padding: 10px; text-align: center;">muse.</td>
-            </tr>
-        </tbody>
-    </table>
-    
-    <div id="notice-detail" style="display:none; margin-top: 20px; padding: 15px; background: #f1f1f1; border: 1px solid #ccc; border-radius: 5px;">
-        <div id="notice-title" style="font-weight: bold; color: #4328B8; margin-bottom: 10px;"></div>
-        <div id="notice-content" style="font-size: 12px; line-height: 1.6;"></div>
-        <button onclick="this.parentElement.style.display='none'" style="margin-top: 10px; font-size: 10px;">닫기</button>
-    </div>
-</div>
         <div id="guestbook" class="tab-content" style="padding: 10px; overflow-y: auto; max-height: 450px;">
     
     <div style="margin-bottom: 20px; border-bottom: 1px dashed #ccc; padding-bottom: 10px;">
@@ -443,9 +443,9 @@ body {
             
     <div class="side-tabs">
         <button class="tab-btn active" onclick="switchTab(this, 'home')">홈</button>
+        <button class="tab-btn" onclick="switchTab(this, 'board')">게시판</button>
         <button class="tab-btn" onclick="switchTab(this, 'profile')">프로필</button>
         <button class="tab-btn" onclick="switchTab(this, 'photo')">사진첩</button>
-        <button class="tab-btn" onclick="switchTab(this, 'board')">게시판</button>
         <button class="tab-btn" onclick="switchTab(this, 'guestbook')">방명록</button>
     </div>
 </div>
